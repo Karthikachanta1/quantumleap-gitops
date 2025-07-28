@@ -1,1 +1,20 @@
-Root App of Apps
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: quantumleap-root
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/YOUR_USERNAME/quantumleap-gitops.git
+    targetRevision: HEAD
+    path: argocd-apps
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
