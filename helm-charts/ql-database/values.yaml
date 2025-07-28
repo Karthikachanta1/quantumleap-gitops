@@ -1,0 +1,4 @@
+image:
+  repository: postgres
+  tag: "15"
+  postgresPassword: mysecretpassword
