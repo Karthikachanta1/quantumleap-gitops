@@ -1,21 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: quantumleap-root
+  name: todo-app
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/Karthikachanta1/quantumleap-gitops.git
+    repoURL: https://github.com/Karthikachanta1/quantumleap-gitops
     targetRevision: HEAD
-    path: argocd-apps
-    directory:
-      recurse: true
+    path: kustomize/overlays/dev/todo-app
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: default
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
-
+    syncOptions:
+      - CreateNamespace=true

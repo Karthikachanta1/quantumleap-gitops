@@ -1,0 +1,2 @@
+resources:
+  - ../../../helm-charts/todo-app
