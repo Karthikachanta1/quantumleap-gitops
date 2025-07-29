@@ -1,0 +1,6 @@
+replicaCount: 1
+image:
+  repository: hashicorp/http-echo
+  tag: latest
+args:
+  - "-text=hello from api"

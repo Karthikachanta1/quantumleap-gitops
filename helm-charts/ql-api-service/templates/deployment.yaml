@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ql-api-service
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: ql-api-service
+  template:
+    metadata:
+      labels:
+        app: ql-api-service
+    spec:
+      containers:
+        - name: api
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          args: {{ .Values.args }}
+          ports:
+            - containerPort: 5678
