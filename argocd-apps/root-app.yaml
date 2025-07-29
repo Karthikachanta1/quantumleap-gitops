@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/YOUR_USERNAME/quantumleap-gitops.git
+    repoURL: https://github.com/Karthikachanta1/quantumleap-gitops.git
     targetRevision: HEAD
     path: argocd-apps
     directory:
